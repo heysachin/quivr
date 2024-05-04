@@ -4,7 +4,6 @@ import styles from "./Settings.module.scss";
 
 import { ApiKeyConfig } from "../ApiKeyConfig";
 import LanguageSelect from "../LanguageSelect/LanguageSelect";
-import { StripePricingOrManageButton } from "../StripePricingOrManageButton";
 
 type InfoDisplayerProps = {
   email: string;
@@ -18,7 +17,6 @@ export const Settings = ({ email }: InfoDisplayerProps): JSX.Element => {
       </InfoDisplayer>
       <LanguageSelect />
       <ApiKeyConfig />
-      <StripePricingOrManageButton />
     </div>
   );
 };
