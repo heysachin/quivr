@@ -87,18 +87,6 @@ async def create_new_brain(
     brain: CreateBrainProperties, current_user: UserIdentity = Depends(get_current_user)
 ):
     """Create a new brain for the user."""
-    user_brains = brain_user_service.get_user_brains(current_user.id)
-    user_usage = UserUsage(
-        id=current_user.id,
-        email=current_user.email,
-    )
-    user_settings = user_usage.get_user_settings()
-
-    if len(user_brains) >= user_settings.get("max_brains", 5):
-        raise HTTPException(
-            status_code=429,
-            detail=f"Maximum number of brains reached ({user_settings.get('max_brains', 5)}).",
-        )
     maybe_send_telemetry("create_brain", {"brain_name": brain.name})
     new_brain = brain_service.create_brain(
         brain=brain,

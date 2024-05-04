@@ -59,12 +59,6 @@ export const PageHeader = ({
             hidden={button.hidden}
           />
         ))}
-        {remainingCredits !== null && (
-          <div className={styles.credits}>
-            <span className={styles.number}>{remainingCredits}</span>
-            <Icon name="coin" color="gold" size="normal"></Icon>
-          </div>
-        )}
         <Icon
           name={lightModeIconName}
           color="black"
